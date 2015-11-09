@@ -1,3 +1,3 @@
 # ReminderBuddy
 Reminder Buddy Code
-Eidted by kiran
+Eidted in dev by kiran
