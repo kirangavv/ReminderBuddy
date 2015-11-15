@@ -1,0 +1,186 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/formLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dim_10dp"
+        android:orientation="vertical"
+         >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dim_5dp"
+                android:paddingTop="@dimen/dim_10dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name : "
+                    android:textColor="#000"
+                    android:textSize="@dimen/abc_text_size_menu_material"/>
+
+
+                <EditText
+                    android:id="@+id/newRemainderName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:ems="10" >
+
+                    <requestFocus />
+                </EditText>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dim_5dp"
+                android:paddingTop="@dimen/dim_5dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Details : "
+                    android:textColor="#000"
+                    android:textSize="@dimen/abc_text_size_menu_material"/>
+
+                <EditText
+                    android:id="@+id/newRemainderDetails"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:ems="10" >
+                </EditText>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dim_5dp"
+                android:paddingTop="@dimen/dim_5dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date : "
+                    android:textColor="#000"
+                    android:textSize="@dimen/abc_text_size_menu_material"/>
+
+                <EditText
+                    android:id="@+id/newRemainderDate"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" >
+                </EditText>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/dim_5dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email : "
+                    android:textColor="#000"
+                    android:textSize="@dimen/abc_text_size_menu_material"/>
+
+                <EditText
+                    android:id="@+id/newRemainderEmail"
+                    android:inputType="textEmailAddress"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" >
+                </EditText>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dim_5dp"
+                android:paddingTop="@dimen/dim_10dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone : "
+                    android:textColor="#000"
+                    android:textSize="@dimen/abc_text_size_menu_material"/>
+
+                <EditText
+                    android:id="@+id/newRemainderPhone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:ems="10" >
+                </EditText>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <Button
+            android:id="@+id/addNewTodoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_addnew" />
+
+        <Button
+            android:id="@+id/menuGoBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/button_menu_goback" />
+    </LinearLayout>
+
+</LinearLayout>

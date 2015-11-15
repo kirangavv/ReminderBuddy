@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Remainder</string>
+    <string name="menu_addnew">Add new remainder</string>
+    <string name="button_addnew">Add</string>
+    <string name="button_menu_goback">Back</string>
+    <string name="title_activity_add_remainder">Add Remainder</string>
+
+</resources>
