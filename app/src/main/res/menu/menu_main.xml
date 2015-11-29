@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
     <item
         android:id="@+id/menu"
-        android:orderInCategory="100"
+        android:orderInCategory="30"
         app:showAsAction="never"
-        android:title="@string/menu_addnew"/>
+        android:title="@string/menu_add"/>
 </menu>

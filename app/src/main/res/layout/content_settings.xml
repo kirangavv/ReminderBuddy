@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/color_background">
+
+    <LinearLayout
+        android:id="@+id/layout_settings_main"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dim_70dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingTop="@dimen/dim_10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete expired reminder after days - "
+                android:textColor="@color/color_labeltext"
+                android:gravity="left"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/dim_10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Automatic backup: "
+                android:textColor="#000"
+                android:textSize="@dimen/abc_text_size_menu_material"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/dim_10dp">
+            <Button
+                android:id="@+id/button_settings_purchase"
+                android:layout_width="@dimen/dim_200dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:text="@string/button_purchase"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/dim_10dp">
+            <Button
+                android:id="@+id/button_settings_export"
+                android:layout_width="@dimen/dim_200dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:text="@string/button_export" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/dim_10dp">
+            <Button
+                android:id="@+id/button_settings_import"
+                android:layout_width="@dimen/dim_200dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:text="@string/button_import" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/dim_10dp">
+            <Button
+                android:id="@+id/button_settings_aboutus"
+                android:layout_width="@dimen/dim_200dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:text="@string/button_aboutus" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -30,4 +30,12 @@
     <dimen name="dim_150dp">150dp</dimen>
     <dimen name="dim_8dp">8dp</dimen>
     <dimen name="dim_250">250dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <color  name="color_background">#C2DFFF</color>
+    <color name="color_labeltext">#000</color>
+
+
+
+
 </resources>

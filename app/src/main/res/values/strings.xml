@@ -1,8 +1,17 @@
 <resources>
-    <string name="app_name">Remainder</string>
-    <string name="menu_addnew">Add new remainder</string>
+    <string name="app_name">Reminder Buddy</string>
+    <string name="menu_add">Add</string>
     <string name="button_addnew">Add</string>
     <string name="button_menu_goback">Back</string>
-    <string name="title_activity_add_remainder">Add Remainder</string>
-
+    <string name="title_activity_add_remainder">Add Reminder</string>
+    <string name="title_activity_main">Main</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="button_export">Export</string>
+    <string name="button_import">Import</string>
+    <string name="button_purchase">Purchase</string>
+    <string name="button_aboutus">About Us</string>
+    <string name="title_activity_about_us">About Us</string>
+    <string name="link_feedback">Please leave your feedback <a href="mailto:kirangavv@hotmail.com?Subject=Reminder Buddy Feedback" target="_top">kirangavv@hotmail.com</a></string>
+    <string name="link_companyname"><a href="http://www.macsof.com"> MacSof </a></string>
+    <string name="contributorsthankyou">Thanks for using our app! Please share this your friend Kiran G and Satish.</string>
 </resources>

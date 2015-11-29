@@ -1,7 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/color_background">
+
     <LinearLayout
         android:id="@+id/formLayout"
         android:layout_width="fill_parent"
@@ -9,6 +11,7 @@
         android:padding="@dimen/dim_10dp"
         android:orientation="vertical"
          >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -72,6 +75,7 @@
 
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -165,22 +169,32 @@
 
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
         <Button
-            android:id="@+id/addNewTodoButton"
+            android:id="@+id/button_addremainder_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_addnew" />
 
         <Button
-            android:id="@+id/menuGoBackButton"
+            android:id="@+id/button_addremainder_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="@string/button_menu_goback" />
+
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/rb_back" />
+
+        />
+
     </LinearLayout>
 
 </LinearLayout>

@@ -1,8 +1,5 @@
 package com.remainder;
 
-/**
- * Created by satish on 11/14/2015.
- */
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -21,14 +18,14 @@ import java.util.List;
  * @author itcuties
  *
  */
-public class ListRemainderAdapter extends ArrayAdapter<Remainder> {
+public class ReminderList extends ArrayAdapter<Remainder> {
 
     // List context
     private final Context context;
     // List values
     private final List<Remainder> remainderList;
 
-    public ListRemainderAdapter(Context context, List<Remainder> remainderList) {
+    public ReminderList(Context context, List<Remainder> remainderList) {
         super(context, R.layout.activity_main, remainderList);
         this.context = context;
         this.remainderList = remainderList;
@@ -38,7 +35,7 @@ public class ListRemainderAdapter extends ArrayAdapter<Remainder> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View rowView = inflater.inflate(R.layout.activity_remainder_list, parent, false);
+        View rowView = inflater.inflate(R.layout.activity_reminder_list, parent, false);
 
         TextView remainderText = (TextView) rowView.findViewById(R.id.name);
         remainderText.setText(remainderList.get(position).getName());

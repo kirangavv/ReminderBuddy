@@ -1,24 +1,18 @@
 package com.remainder;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.remainder.dao.RemainderDAO;
-import com.remainder.datamodels.Remainder;
 
-public class MainActivity extends AppCompatActivity   {
+public class Main extends AppCompatActivity   {
     // DAO
     private RemainderDAO dao;
-
-    ListRemainderAdapter listRemainderAdapter;
+    ReminderList listRemainder;
     ListView listView = null;
 
     @Override
@@ -34,30 +28,14 @@ public class MainActivity extends AppCompatActivity   {
       //  newRemainderObj.setName("Testing11");
       //  dao.createRemainder(newRemainderObj);
 
-        listRemainderAdapter=new ListRemainderAdapter(this, dao.getRemainders());
+        listRemainder =new ReminderList(this, dao.getRemainders());
 
         listView = (ListView) findViewById(R.id.listview_result);
-        listView.setAdapter(listRemainderAdapter);
+        listView.setAdapter(listRemainder);
         // Set the list adapter and get Remainders list via DAO
-        //setListAdapter(new ListRemainderAdapter(this, dao.getRemainders()));
+        //setListAdapter(new ListRemainder(this, dao.getRemainders()));
 
     }
-
-   /* @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        // Remainder item that was clicked
-        Remainder remainder = (Remainder)getListAdapter().getItem(position);
-
-        // Delete Remainder object from the database
-        dao.deleteRemainder(remainder.getId());
-
-        // Set the list adapter and get Remainders list via DAO
-        setListAdapter(new ListRemainderAdapter(this, dao.getRemainders()));
-
-        // Display success information
-        Toast.makeText(getApplicationContext(), "Deleted!", Toast.LENGTH_LONG).show();
-
-    }*/
 
 
     /* ************************************************************* *
@@ -72,14 +50,10 @@ public class MainActivity extends AppCompatActivity   {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Since we have only ONE option this code is not complicated :)
 
-        // Create an intent
-        Intent intent = new Intent(this, AddRemainder.class);
-        // Start activity
+        //calling add reminder page
+        Intent intent = new Intent(this, AddReminder.class);
         startActivity(intent);
-        // Finish this activity
-        this.finish();
 
         // Close the database
         dao.close();

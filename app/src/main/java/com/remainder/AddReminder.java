@@ -3,7 +3,6 @@ package com.remainder;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 import com.remainder.dao.RemainderDAO;
 import com.remainder.datamodels.Remainder;
 
-public class AddRemainder extends AppCompatActivity implements View.OnClickListener {
+public class AddReminder extends AppCompatActivity implements View.OnClickListener {
 
     // GUI components
     private EditText remainderName;		// Text field
@@ -31,7 +30,7 @@ public class AddRemainder extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_remainder);// Create DAO object
+        setContentView(R.layout.activity_add_reminder);// Create DAO object
         dao = new RemainderDAO(this);
 
         remainderName 		= (EditText)findViewById(R.id.newRemainderName);
@@ -39,12 +38,12 @@ public class AddRemainder extends AppCompatActivity implements View.OnClickListe
         remainderDate 		= (EditText)findViewById(R.id.newRemainderDate);
         remainderEmail 		= (EditText)findViewById(R.id.newRemainderEmail);
         remainderPhone 		= (EditText)findViewById(R.id.newRemainderPhone);
-        addNewButton 	= (Button)findViewById(R.id.addNewTodoButton);
-        backButton		= (Button)findViewById(R.id.menuGoBackButton);
+        addNewButton 	= (Button)findViewById(R.id.button_addremainder_add);
+        backButton		= (Button)findViewById(R.id.button_addremainder_back);
 
         addNewButton.setOnClickListener(this);
         backButton.setOnClickListener(this);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -68,7 +67,7 @@ public class AddRemainder extends AppCompatActivity implements View.OnClickListe
             // Display success information
             Toast.makeText(getApplicationContext(), "New Remainder added!", Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, Main.class);
             // Start activity
             startActivity(intent);
 
@@ -76,7 +75,7 @@ public class AddRemainder extends AppCompatActivity implements View.OnClickListe
         //else if (backButton.isPressed()) {
             // When back button is pressed
             // Create an intent
-           // Intent intent = new Intent(this, MainActivity.class);
+           // Intent intent = new Intent(this, Main.class);
             // Start activity
            // startActivity(intent);
             // Finish this activity
@@ -86,6 +85,19 @@ public class AddRemainder extends AppCompatActivity implements View.OnClickListe
             dao.close();
        // }
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // This is called when the Home (Up) button is pressed in the action bar.
+                // Create a simple intent that starts the hierarchical parent activity and
+                // use NavUtils in the Support Package to ensure proper handling of Up.
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
