@@ -2,15 +2,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@color/color_background">
+    android:background="@color/background">
 
     <LinearLayout
         android:id="@+id/formLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dim_10dp"
-        android:orientation="vertical"
-         >
+        android:padding="@dimen/dim_5dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,18 +19,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/dim_5dp"
-                android:paddingTop="@dimen/dim_10dp">
-
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name : "
-                    android:textColor="#000"
-                    android:textSize="@dimen/abc_text_size_menu_material"/>
-
+                    android:textColor="@color/labeltext"
+                    android:textSize="16sp"/>
 
                 <EditText
                     android:id="@+id/newRemainderName"
@@ -39,10 +34,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:ems="10" >
-
                     <requestFocus />
                 </EditText>
-
             </LinearLayout>
         </LinearLayout>
 
@@ -53,17 +46,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/dim_5dp"
-                android:paddingTop="@dimen/dim_5dp">
-
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Details : "
-                    android:textColor="#000"
-                    android:textSize="@dimen/abc_text_size_menu_material"/>
+                    android:textColor="@color/labeltext"
+                    android:textSize="@dimen/textsize_16sp"/>
 
                 <EditText
                     android:id="@+id/newRemainderDetails"
@@ -72,7 +62,6 @@
                     android:inputType="text"
                     android:ems="10" >
                 </EditText>
-
             </LinearLayout>
         </LinearLayout>
 
@@ -83,17 +72,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/dim_5dp"
-                android:paddingTop="@dimen/dim_5dp">
-
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Date : "
-                    android:textColor="#000"
-                    android:textSize="@dimen/abc_text_size_menu_material"/>
+                    android:textColor="@color/labeltext"
+                    android:textSize="@dimen/textsize_16sp"/>
 
                 <EditText
                     android:id="@+id/newRemainderDate"
@@ -101,7 +87,6 @@
                     android:layout_height="wrap_content"
                     android:ems="10" >
                 </EditText>
-
             </LinearLayout>
         </LinearLayout>
 
@@ -112,16 +97,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/dim_5dp">
-
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Email : "
-                    android:textColor="#000"
-                    android:textSize="@dimen/abc_text_size_menu_material"/>
+                    android:textColor="@color/labeltext"
+                    android:textSize="@dimen/textsize_16sp"/>
 
                 <EditText
                     android:id="@+id/newRemainderEmail"
@@ -130,7 +113,6 @@
                     android:layout_height="wrap_content"
                     android:ems="10" >
                 </EditText>
-
             </LinearLayout>
         </LinearLayout>
 
@@ -141,17 +123,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/dim_5dp"
-                android:paddingTop="@dimen/dim_10dp">
-
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Phone : "
-                    android:textColor="#000"
-                    android:textSize="@dimen/abc_text_size_menu_material"/>
+                    android:textColor="@color/labeltext"
+                    android:textSize="@dimen/textsize_16sp"/>
 
                 <EditText
                     android:id="@+id/newRemainderPhone"
@@ -161,40 +140,22 @@
                     android:maxLength="10"
                     android:ems="10" >
                 </EditText>
-
             </LinearLayout>
         </LinearLayout>
-
-
-
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="horizontal">
         <Button
-            android:id="@+id/button_addremainder_add"
+            android:id="@+id/button_addremainder_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_addnew" />
-
-        <Button
-            android:id="@+id/button_addremainder_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_menu_goback" />
-
-
-            <ImageButton
-                android:id="@+id/imageButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/rb_back" />
-
-        />
-
+            android:text="@string/button_save" />
     </LinearLayout>
 
 </LinearLayout>

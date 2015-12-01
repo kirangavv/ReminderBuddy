@@ -15,18 +15,21 @@
         <activity
             android:name=".AddReminder"
             android:label="@string/title_activity_add_remainder" >
-        </activity>
-        <activity
-            android:name=".Settings"
-            android:label="@string/title_activity_settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".Settings"
+            android:label="@string/title_activity_settings">
+
+        </activity>
         <activity
             android:name=".AboutUs"
             android:label="@string/title_activity_about_us" >
+
         </activity>
     </application>
 

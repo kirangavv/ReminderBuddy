@@ -20,36 +20,36 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     private EditText remainderDate;		// Text field
     private EditText remainderEmail;		// Text field
     private EditText remainderPhone;		// Text field
-    private Button addNewButton;	// Add new button
-    private Button backButton;		// Back button
+    private Button saveButton;	// Save button
 
     // DAO
     private RemainderDAO dao;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_add_reminder);// Create DAO object
+
         dao = new RemainderDAO(this);
 
         remainderName 		= (EditText)findViewById(R.id.newRemainderName);
-        remainderDetails 		= (EditText)findViewById(R.id.newRemainderDetails);
+        remainderDetails 	= (EditText)findViewById(R.id.newRemainderDetails);
         remainderDate 		= (EditText)findViewById(R.id.newRemainderDate);
         remainderEmail 		= (EditText)findViewById(R.id.newRemainderEmail);
         remainderPhone 		= (EditText)findViewById(R.id.newRemainderPhone);
-        addNewButton 	= (Button)findViewById(R.id.button_addremainder_add);
-        backButton		= (Button)findViewById(R.id.button_addremainder_back);
+        saveButton 	        = (Button)findViewById(R.id.button_addremainder_save);
 
-        addNewButton.setOnClickListener(this);
-        backButton.setOnClickListener(this);
+        saveButton.setOnClickListener(this);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
     public void onClick(View v) {
         // If add button was clicked
-        if (addNewButton.isPressed()) {
+        if (saveButton.isPressed()) {
             // Get entered text
             String remainderNameTextValue = remainderName.getText().toString();
             remainderName.setText("");
@@ -72,19 +72,10 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             startActivity(intent);
 
         }
-        //else if (backButton.isPressed()) {
-            // When back button is pressed
-            // Create an intent
-           // Intent intent = new Intent(this, Main.class);
-            // Start activity
-           // startActivity(intent);
-            // Finish this activity
             this.finish();
 
             // Close the database
             dao.close();
-       // }
-
     }
 
     @Override
