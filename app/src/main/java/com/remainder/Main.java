@@ -19,28 +19,16 @@ public class Main extends AppCompatActivity   {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Create DAO object
+
         dao = new RemainderDAO(this);
-        //Remainder newRemainderObj= new Remainder();
-       // newRemainderObj.setName("Testing");
-      //  dao.createRemainder(newRemainderObj);
 
-      //  newRemainderObj.setName("Testing11");
-      //  dao.createRemainder(newRemainderObj);
-
+        //fill list
         listRemainder =new ReminderList(this, dao.getRemainders());
-
         listView = (ListView) findViewById(R.id.listview_result);
         listView.setAdapter(listRemainder);
-        // Set the list adapter and get Remainders list via DAO
-        //setListAdapter(new ListRemainder(this, dao.getRemainders()));
-
     }
 
 
-    /* ************************************************************* *
-	 * Menu service methods
-	 * ************************************************************* */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -51,9 +39,18 @@ public class Main extends AppCompatActivity   {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        //calling add reminder page
-        Intent intent = new Intent(this, AddReminder.class);
-        startActivity(intent);
+        switch (item.getItemId()) {
+            case R.id.menu_add:
+                //calling add reminder page
+                Intent addIntent = new Intent(this, AddReminder.class);
+                startActivity(addIntent);
+                break;
+            case R.id.menu_settings:
+                // calling setting page
+                Intent settingIntent = new Intent(this, Settings.class);
+                startActivity(settingIntent);
+                break;
+        }
 
         // Close the database
         dao.close();

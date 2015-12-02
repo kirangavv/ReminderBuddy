@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Reminder Buddy</string>
     <string name="menu_add">Add</string>
+    <string name="menu_settings">Settings</string>
     <string name="button_save">Save</string>
+    <string name="button_showdetails">...</string>
     <string name="title_activity_add_remainder">Add Reminder</string>
     <string name="title_activity_main">Main</string>
     <string name="title_activity_settings">Settings</string>
