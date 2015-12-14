@@ -1,0 +1,119 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:id="@+id/layout_settings_main"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dim_40dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/dim_10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete expired reminder after days :"
+                android:textColor="@color/labeltext"
+                android:textSize="16sp"/>
+
+            <Spinner
+                android:id="@+id/spinner_settings_delexpireddays"
+                android:layout_width="@dimen/dim_100dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingTop="@dimen/dim_20dp"
+            android:paddingBottom="@dimen/dim_20dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/dim_10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Automatic backup: "
+                android:textColor="@color/labeltext"
+                android:textSize="@dimen/abc_text_size_menu_material"/>
+
+            <ToggleButton
+                android:id="@+id/togglebutton_settings_automaticbackup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dim_0.1dp"
+                android:background="@color/line"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/dim_10dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/button_settings_purchase"
+                android:layout_width="@dimen/dim_200dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:text="@string/button_purchase"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/dim_10dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/button_settings_export"
+                android:layout_width="@dimen/dim_200dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:text="@string/button_export" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/dim_10dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/button_settings_import"
+                android:layout_width="@dimen/dim_200dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:text="@string/button_import" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/dim_10dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/button_settings_aboutus"
+                android:layout_width="@dimen/dim_200dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:text="@string/button_aboutus" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

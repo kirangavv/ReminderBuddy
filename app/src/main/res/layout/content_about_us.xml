@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:id="@+id/layout_settings_main"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dim_50dp"
+
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="@dimen/dim_25dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/dim_10dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company : "
+                android:textColor="@color/labeltext"
+                android:textSize="@dimen/abc_text_size_menu_material"/>
+
+            <TextView
+                android:id="@+id/txt_aboutus_companyname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dim_25dp"
+                android:autoLink="web"
+                android:text="@string/link_companyname"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/dim_25dp"
+            android:layout_marginLeft="@dimen/dim_10dp"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Feedback :"
+                android:textColor="@color/labeltext"
+                android:textSize="@dimen/abc_text_size_menu_material"/>
+
+            <TextView
+                android:id="@+id/txt_aboutus_companyfeedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dim_25dp"
+                android:autoLink="email"
+                android:text="@string/link_feedback"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_50dp">
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/line"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/dim_10dp"
+            android:layout_marginTop="@dimen/dim_10dp">
+            <TextView
+                android:id="@+id/txt_aboutus_contributors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contributorsthankyou"
+                android:textColor="@color/labeltext"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

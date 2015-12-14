@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".Main">
+    <item
+        android:id="@+id/menu_add"
+        android:orderInCategory="30"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/rb_add"
+        android:title="@string/menu_add"/>
+
+    <item
+        android:id="@+id/menu_settings"
+        android:orderInCategory="30"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/rb_settings"
+        android:title="@string/menu_settings"/>
+</menu>
