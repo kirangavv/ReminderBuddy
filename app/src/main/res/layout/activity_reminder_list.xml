@@ -125,54 +125,56 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="fill_parent"
         android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/dim_5dp"
-        android:paddingTop="@dimen/dim_10dp">
+        android:paddingTop="@dimen/dim_5dp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".1"
             android:text="Phone : "
             android:textColor="#000"
+
            android:textSize="@dimen/abc_text_size_menu_material"/>
 
         <TextView
             android:id="@+id/textview_reminderlist_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".8"
             android:textSize="@dimen/abc_text_size_menu_material"
-            android:gravity="left"
+
             android:textColor="#000">
         </TextView>
 
-        <Button
-           android:id="@+id/button_reminderlist_details"
-           android:layout_width="@dimen/dim_30dp"
-           android:layout_height="@dimen/dim_40dp"
-           android:layout_gravity="right"
-           android:layout_marginLeft="@dimen/dim_100dp"
-           android:background="@android:color/transparent"
-           android:drawableTop="@drawable/rb_showdetails"
-            />
+            <LinearLayout
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/button_reminderlist_details"
+                    android:layout_width="@dimen/dim_30dp"
+                    android:layout_height="@dimen/dim_30dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/rb_showdetails"
+                    />
 
-        <Button
-           android:id="@+id/button_reminderlist_delete"
-           android:layout_width="@dimen/dim_30dp"
-           android:layout_height="@dimen/dim_40dp"
-           android:layout_gravity="right"
-           android:layout_marginLeft="@dimen/dim_10dp"
-           android:background="@android:color/transparent"
-           android:drawableTop="@drawable/rb_delete"
-                />
+                <ImageView
+                    android:id="@+id/button_reminderlist_delete"
+                    android:layout_width="@dimen/dim_30dp"
+                    android:layout_height="@dimen/dim_30dp"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="@dimen/dim_5dp"
+                    android:layout_marginRight="@dimen/dim_5dp"
+                    android:background="@drawable/rb_delete"
+                    />
 
-    </LinearLayout>
+            </LinearLayout>
+
+
     </LinearLayout>
 
 </LinearLayout>
