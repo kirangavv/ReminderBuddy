@@ -29,7 +29,7 @@
                     android:textSize="16sp"/>
 
                 <EditText
-                    android:id="@+id/newRemainderName"
+                    android:id="@+id/edittext_addremainder_name"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -56,7 +56,7 @@
                     android:textSize="@dimen/textsize_16sp"/>
 
                 <EditText
-                    android:id="@+id/newRemainderDetails"
+                    android:id="@+id/edittext_addremainder_details"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -82,7 +82,7 @@
                     android:textSize="@dimen/textsize_16sp"/>
 
                 <EditText
-                    android:id="@+id/newRemainderDate"
+                    android:id="@+id/edittext_addremainder_date"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:ems="10" >
@@ -107,7 +107,7 @@
                     android:textSize="@dimen/textsize_16sp"/>
 
                 <EditText
-                    android:id="@+id/newRemainderEmail"
+                    android:id="@+id/edittext_addremainder_email"
                     android:inputType="textEmailAddress"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                     android:textSize="@dimen/textsize_16sp"/>
 
                 <EditText
-                    android:id="@+id/newRemainderPhone"
+                    android:id="@+id/edittext_addremainder_phone"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
@@ -155,6 +155,8 @@
             android:id="@+id/button_addremainder_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/rb_save"
             android:text="@string/button_save" />
     </LinearLayout>
 

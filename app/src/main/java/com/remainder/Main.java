@@ -43,6 +43,7 @@ public class Main extends AppCompatActivity   {
             case R.id.menu_add:
                 //calling add reminder page
                 Intent addIntent = new Intent(this, AddReminder.class);
+                addIntent.putExtra("Mode", "New");
                 startActivity(addIntent);
                 break;
             case R.id.menu_settings:
