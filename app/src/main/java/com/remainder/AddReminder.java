@@ -69,22 +69,29 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             String remainderNameTextValue = remainderName.getText().toString();
             remainderName.setText("");
 
-            Remainder newRemainderObj= new Remainder();
-            newRemainderObj.setName(remainderNameTextValue);
-            newRemainderObj.setDate(remainderDate.getText().toString());
-            newRemainderObj.setDetails(remainderDetails.getText().toString());
-            newRemainderObj.setPhone(remainderPhone.getText().toString());
-            newRemainderObj.setEmail(remainderEmail.getText().toString());
+            Remainder remainderObj= new Remainder();
+            remainderObj.setName(remainderNameTextValue);
+            remainderObj.setDate(remainderDate.getText().toString());
+            remainderObj.setDetails(remainderDetails.getText().toString());
+            remainderObj.setPhone(remainderPhone.getText().toString());
+            remainderObj.setEmail(remainderEmail.getText().toString());
 
             Intent intent = getIntent();
             String mode =  intent.getExtras().getString("Mode");
 
             if (mode.equals("New")) {
                 // Add reaminder data to the database
-                dao.createRemainder(newRemainderObj);
+                dao.createRemainder(remainderObj);
+                // Display success information
+                Toast.makeText(getApplicationContext(), "Remainder added!", Toast.LENGTH_LONG).show();
             }
-            // Display success information
-            Toast.makeText(getApplicationContext(), "New Remainder added!", Toast.LENGTH_LONG).show();
+            else
+            {
+                //update reaminder
+                dao.updateRemainder(remainderObj);
+                // Display success information
+                Toast.makeText(getApplicationContext(), "Updated reminder!", Toast.LENGTH_LONG).show();
+            }
 
             intent = new Intent(this, Main.class);
             // Start activity

@@ -162,6 +162,16 @@
            android:drawableTop="@drawable/rb_showdetails"
             />
 
+        <Button
+           android:id="@+id/button_reminderlist_delete"
+           android:layout_width="@dimen/dim_30dp"
+           android:layout_height="@dimen/dim_40dp"
+           android:layout_gravity="right"
+           android:layout_marginLeft="@dimen/dim_10dp"
+           android:background="@android:color/transparent"
+           android:drawableTop="@drawable/rb_delete"
+                />
+
     </LinearLayout>
     </LinearLayout>
 

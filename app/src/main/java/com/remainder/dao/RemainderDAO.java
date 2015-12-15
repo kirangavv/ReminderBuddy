@@ -29,10 +29,18 @@ public class RemainderDAO {
         db.close();
     }
 
-    /**
-     * Create new Remainder object
-     * @param remainder
-     */
+    public void updateRemainder(Remainder remainder) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", remainder.getName());
+        contentValues.put("details", remainder.getDetails());
+        contentValues.put("phone", remainder.getPhone());
+        contentValues.put("date", remainder.getDate());
+        contentValues.put("email", remainder.getEmail());
+
+        String strFilter = "_id = " + remainder.getId();
+        db.update("remainders", contentValues, strFilter, null);
+    }
+
     public void createRemainder(Remainder remainder) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", remainder.getName());
@@ -44,12 +52,7 @@ public class RemainderDAO {
         db.insert("remainders", null, contentValues);
     }
 
-    /**
-     * Delete Remainder object
-     * @param id
-     */
     public void deleteRemainder(int id) {
-        // Delete from DB where id match
         db.delete("remainders", "_id = " + id, null);
     }
 
@@ -84,7 +87,6 @@ public class RemainderDAO {
             // Move to the next result
             cursor.moveToNext();
         }
-
         return remainderList;
     }
 

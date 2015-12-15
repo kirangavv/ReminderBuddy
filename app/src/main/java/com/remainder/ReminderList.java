@@ -10,7 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.remainder.dao.RemainderDAO;
 import com.remainder.datamodels.Remainder;
 
 import java.util.List;
@@ -25,6 +27,7 @@ public class ReminderList extends ArrayAdapter<Remainder> {
 
     // List context
     private final Context context;
+    private RemainderDAO dao;
     // List values
     private final List<Remainder> remainderList;
 
@@ -72,6 +75,23 @@ public class ReminderList extends ArrayAdapter<Remainder> {
                 addIntent.putExtra("Email",remainderList.get(position).getEmail());
                 addIntent.putExtra("Phone",remainderList.get(position).getPhone());
                 context.startActivity(addIntent);
+            }
+        });
+
+
+        Button remainderDelete = (Button) rowView.findViewById(R.id.button_reminderlist_delete);
+
+        remainderDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addIntent = new Intent(context, AddReminder.class);
+                View parentRow = (View) v.getParent().getParent().getParent();
+                ListView listView = (ListView) parentRow.getParent();
+                final int position = listView.getPositionForView(parentRow);
+                int id = remainderList.get(position).getId();
+                dao.deleteRemainder(id);
+                Toast.makeText(context, "Remainder deleted!", Toast.LENGTH_LONG).show();
+                dao.close();
             }
         });
         return rowView;
