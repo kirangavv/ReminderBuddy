@@ -51,7 +51,7 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             String date = intent.getExtras().getString("Date");
             remainderDate.setText(date);
             String email = intent.getExtras().getString("Email");
-            remainderEmail.setText(name);
+            remainderEmail.setText(email);
             String phone = intent.getExtras().getString("Phone");
             remainderPhone.setText(phone);
         }
@@ -87,19 +87,17 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             }
             else
             {
+                int id =  intent.getExtras().getInt("ID");
+                remainderObj.setId(id);
                 //update reaminder
                 dao.updateRemainder(remainderObj);
                 // Display success information
                 Toast.makeText(getApplicationContext(), "Updated reminder!", Toast.LENGTH_LONG).show();
             }
-
             intent = new Intent(this, Main.class);
-            // Start activity
             startActivity(intent);
-
         }
             this.finish();
-
             // Close the database
             dao.close();
     }

@@ -40,6 +40,8 @@ public class ReminderList extends ArrayAdapter<Remainder> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        dao = new RemainderDAO(context);
+
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View rowView = inflater.inflate(R.layout.activity_reminder_list, parent, false);
@@ -69,6 +71,7 @@ public class ReminderList extends ArrayAdapter<Remainder> {
                 ListView listView = (ListView) parentRow.getParent();
                 final int position = listView.getPositionForView(parentRow);
                 addIntent.putExtra("Mode","Edit");
+                addIntent.putExtra("ID", remainderList.get(position).getId());
                 addIntent.putExtra("Name",remainderList.get(position).getName());
                 addIntent.putExtra("Details",remainderList.get(position).getDetails());
                 addIntent.putExtra("Date",remainderList.get(position).getDate());
@@ -92,6 +95,8 @@ public class ReminderList extends ArrayAdapter<Remainder> {
                 dao.deleteRemainder(id);
                 Toast.makeText(context, "Remainder deleted!", Toast.LENGTH_LONG).show();
                 dao.close();
+                Intent mainIntent = new Intent(context, Main.class);
+                context.startActivity(mainIntent);
             }
         });
         return rowView;
