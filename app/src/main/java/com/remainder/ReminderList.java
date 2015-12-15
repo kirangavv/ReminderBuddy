@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,7 +62,7 @@ public class ReminderList extends ArrayAdapter<Remainder> {
         TextView remainderDate = (TextView) rowView.findViewById(R.id.textview_reminderlist_date);
         remainderDate.setText(remainderList.get(position).getDate());
 
-        Button remainderShowDetails = (Button) rowView.findViewById(R.id.button_reminderlist_details);
+        ImageView remainderShowDetails = (ImageView) rowView.findViewById(R.id.button_reminderlist_details);
 
         remainderShowDetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +83,7 @@ public class ReminderList extends ArrayAdapter<Remainder> {
         });
 
 
-        Button remainderDelete = (Button) rowView.findViewById(R.id.button_reminderlist_delete);
+        ImageView remainderDelete = (ImageView) rowView.findViewById(R.id.button_reminderlist_delete);
 
         remainderDelete.setOnClickListener(new View.OnClickListener() {
             @Override

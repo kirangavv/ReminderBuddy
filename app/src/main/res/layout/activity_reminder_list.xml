@@ -171,9 +171,7 @@
                     android:layout_marginRight="@dimen/dim_5dp"
                     android:background="@drawable/rb_delete"
                     />
-
             </LinearLayout>
-
 
     </LinearLayout>
 
