@@ -77,31 +77,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Date : "
-                    android:textColor="@color/labeltext"
-                    android:textSize="@dimen/textsize_16sp"/>
-
-                <EditText
-                    android:id="@+id/edittext_addremainder_date"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10" >
-                </EditText>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="Email : "
                     android:textColor="@color/labeltext"
                     android:textSize="@dimen/textsize_16sp"/>
@@ -152,22 +127,142 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-
                 <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Phone : "-->
-                    <!--android:textColor="@color/labeltext"-->
-                    <!--android:textSize="@dimen/textsize_16sp"/>-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Date : "-->
+                <!--android:textColor="@color/labeltext"-->
+                <!--android:textSize="@dimen/textsize_16sp"/>-->
 
-                <!--<EditText-->
-                    <!--android:id="@+id/edittext_addremainder_phone"-->
-                    <!--android:layout_width="fill_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:inputType="phone"-->
-                    <!--android:maxLength="10"-->
-                    <!--android:ems="10" >-->
-                <!--</EditText>-->
+                <Button
+                    android:id="@+id/button_addremainder_setdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dim_40dp"
+                    android:text="Set Date"/>
+
+                <EditText
+                    android:id="@+id/edittext_addremainder_date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" >
+                </EditText>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reminder Type : "
+                    android:textColor="@color/labeltext"
+                    android:textSize="16sp"/>
+
+                <Spinner
+                    android:id="@+id/spinner_addremainder_remaindertype"
+                    android:layout_width="@dimen/dim_150dp"
+                    android:layout_height="@dimen/dim_40dp"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"/>
+
+           </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Send Wishes : "
+                    android:textColor="@color/labeltext"
+                    android:textSize="@dimen/abc_text_size_menu_material"/>
+
+                <ToggleButton
+                    android:id="@+id/togglebutton_addremainder_sendwishes"
+                    android:layout_width="@dimen/dim_50dp"
+                    android:layout_height="@dimen/dim_40dp"/>
+
+                <CheckBox android:id="@+id/checkbox_addremainder_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"/>
+
+                <CheckBox android:id="@+id/checkbox_addremainder_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="email"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Message : "
+                    android:textColor="@color/labeltext"
+                    android:textSize="@dimen/textsize_16sp"/>
+
+                <EditText
+                    android:id="@+id/edittext_addremainder_message"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:minLines="2"
+                    android:maxLines="4"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reminder Status : "
+                    android:textColor="@color/labeltext"
+                    android:textSize="16sp"/>
+
+                <ToggleButton
+                    android:id="@+id/togglebutton_addremainder_reminderstatus"
+                    android:layout_width="@dimen/dim_50dp"
+                    android:layout_height="@dimen/dim_40dp"/>
+
             </LinearLayout>
         </LinearLayout>
 
