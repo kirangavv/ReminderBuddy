@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     private EditText remainderDate;		// Text field
     private EditText remainderEmail;		// Text field
     private EditText remainderPhone;		// Text field
-    private Button saveButton;	// Save button
+    private ImageView saveButton;	// Save button
 
     // DAO
     private RemainderDAO dao;
@@ -47,23 +48,23 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         remainderDate 		= (EditText)findViewById(R.id.edittext_addremainder_date);
         remainderEmail 		= (EditText)findViewById(R.id.edittext_addremainder_email);
         remainderPhone 		= (EditText)findViewById(R.id.edittext_addremainder_phone);
-        saveButton 	        = (Button)findViewById(R.id.button_addremainder_save);
+        saveButton 	        = (ImageView)findViewById(R.id.button_addremainder_save);
 
 
-//        Intent intent = getIntent();
-//        String mode =  intent.getExtras().getString("Mode");
-//        if (mode.equals("Edit")) {
-//            String name = intent.getExtras().getString("Name");
-//            remainderName.setText(name);
-//            String details = intent.getExtras().getString("Details");
-//            remainderDetails.setText(details);
-//            String date = intent.getExtras().getString("Date");
-//            remainderDate.setText(date);
-//            String email = intent.getExtras().getString("Email");
-//            remainderEmail.setText(email);
-//            String phone = intent.getExtras().getString("Phone");
-//            remainderPhone.setText(phone);
-//        }
+        Intent intent = getIntent();
+        String mode =  intent.getExtras().getString("Mode");
+        if (mode.equals("Edit")) {
+            String name = intent.getExtras().getString("Name");
+            remainderName.setText(name);
+            String details = intent.getExtras().getString("Details");
+            remainderDetails.setText(details);
+            String date = intent.getExtras().getString("Date");
+            remainderDate.setText(date);
+            String email = intent.getExtras().getString("Email");
+            remainderEmail.setText(email);
+            String phone = intent.getExtras().getString("Phone");
+            remainderPhone.setText(phone);
+        }
 
         saveButton.setOnClickListener(this);
 

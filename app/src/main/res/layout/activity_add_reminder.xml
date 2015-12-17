@@ -134,11 +134,12 @@
                 <!--android:textColor="@color/labeltext"-->
                 <!--android:textSize="@dimen/textsize_16sp"/>-->
 
-                <Button
+                <ImageView
                     android:id="@+id/button_addremainder_setdate"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/dim_40dp"
                     android:layout_height="@dimen/dim_40dp"
-                    android:text="Set Date"/>
+                    android:background="@drawable/rb_calender"
+                    android:textColor="@color/buttontext" />
 
                 <EditText
                     android:id="@+id/edittext_addremainder_date"
@@ -274,13 +275,11 @@
         android:layout_weight="1"
         android:gravity="center|bottom"
         android:orientation="horizontal">
-        <Button
+        <ImageView
             android:id="@+id/button_addremainder_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/rb_save"
-            android:text="@string/button_save" />
+            android:layout_width="@dimen/dim_50dp"
+            android:layout_height="@dimen/dim_50dp"
+            android:background="@drawable/rb_save"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -2,6 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="dim_0.5dp">0.5dp</dimen>
     <dimen name="dim_0.1dp">0.1dp</dimen>
+    <dimen name="dim_0.2dp">0.2dp</dimen>
     <dimen name="dim_1dp">1dp</dimen>
     <dimen name="dim_3dp">3dp</dimen>
     <dimen name="dim_5dp">5dp</dimen>
@@ -28,15 +29,12 @@
     <dimen name="dim_150dp">150dp</dimen>
     <dimen name="dim_200dp">200dp</dimen>
     <dimen name="dim_250">250dp</dimen>
-
-
     <dimen name="textsize_16sp">16sp</dimen>
 
     <color  name="background">#C2DFFF</color>
     <color name="line">#66b2ff</color>
     <color name="labeltext">#000</color>
-
-
-
-
+    <color name="buttontext">#a8dff4</color>
+    <color name="buttonbackground">#0099cc</color>
+    <color name="white">#FFFFFF</color>
 </resources>
