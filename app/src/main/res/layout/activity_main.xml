@@ -3,7 +3,7 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/dim_10dp"
     android:paddingRight="@dimen/dim_10dp"
     android:paddingBottom="@dimen/dim_10dp"
-    tools:context="com.remainder.Main"
+    tools:context="com.remainder.screens.Main"
     android:background="@color/background">
 
     <ListView android:id="@+id/listview_result"

@@ -1,6 +1,5 @@
-package com.remainder;
+package com.remainder.screens;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,45 +7,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
 
-public class Settings extends AppCompatActivity implements View.OnClickListener {
+import com.remainder.R;
+
+public class AboutUs extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_about_us);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-        //about us button action
-        Button buttonAboutUS = (Button) findViewById(R.id.button_settings_aboutus);
-        buttonAboutUS.setOnClickListener(this);
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
-        //add back arrow
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        //fill delete days combo
-        Spinner dropdown = (Spinner)findViewById(R.id.spinner_settings_delexpireddays);
-        String[] items = new String[]{"30", "60", "90"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(adapter);
-
-
-      }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button_settings_aboutus:
-                Intent intent = new Intent(Settings.this, AboutUs.class);
-                startActivity(intent);
-                break;
-        }
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -60,4 +43,5 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

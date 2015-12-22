@@ -11,9 +11,7 @@ import com.remainder.sql.RemainderSQLiteHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by satish on 11/14/2015.
- */
+
 public class RemainderDAO {
 
     private SQLiteDatabase db;
@@ -24,11 +22,11 @@ public class RemainderDAO {
         db = dbHelper.getWritableDatabase();
     }
 
-    // Close the db
     public void close() {
         db.close();
     }
 
+    //reminder table operations
     public void updateRemainder(Remainder remainder) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", remainder.getName());
@@ -56,10 +54,6 @@ public class RemainderDAO {
         db.delete("remainders", "_id = " + id, null);
     }
 
-    /**
-     * Get all Remainders.
-     * @return
-     */
     public List<Remainder> getRemainders() {
         List<Remainder> remainderList = new ArrayList<Remainder>();
 

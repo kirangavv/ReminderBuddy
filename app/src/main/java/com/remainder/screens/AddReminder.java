@@ -1,4 +1,4 @@
-package com.remainder;
+package com.remainder.screens;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,14 +6,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.remainder.R;
 import com.remainder.dao.RemainderDAO;
 import com.remainder.datamodels.Remainder;
+
+import java.util.Calendar;
 
 public class AddReminder extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +28,12 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     private EditText remainderEmail;		// Text field
     private EditText remainderPhone;		// Text field
     private ImageView saveButton;	// Save button
+    private ImageView dateSelectionButton;	// Save button
+
+    private DatePicker datePicker;
+    private Calendar calendar;
+    private TextView dateView;
+    private int year, month, day;
 
     // DAO
     private RemainderDAO dao;
@@ -42,14 +52,13 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
 
-
         remainderName 		= (EditText)findViewById(R.id.edittext_addremainder_name);
         remainderDetails 	= (EditText)findViewById(R.id.edittext_addremainder_details);
         remainderDate 		= (EditText)findViewById(R.id.edittext_addremainder_date);
         remainderEmail 		= (EditText)findViewById(R.id.edittext_addremainder_email);
         remainderPhone 		= (EditText)findViewById(R.id.edittext_addremainder_phone);
         saveButton 	        = (ImageView)findViewById(R.id.button_addremainder_save);
-
+        dateSelectionButton = (ImageView)findViewById(R.id.button_addremainder_setdate);
 
         Intent intent = getIntent();
         String mode =  intent.getExtras().getString("Mode");
@@ -68,14 +77,33 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
 
         saveButton.setOnClickListener(this);
 
+        dateSelectionButton.setOnClickListener(this);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
     public void onClick(View v) {
-        // If add button was clicked
-        if (saveButton.isPressed()) {
-            // Get entered text
+        switch (v.getId())
+        {
+            case R.id.button_addremainder_save :
+                remainderbtnClicked();
+                break;
+
+            case  R.id.button_addremainder_setdate :
+                remaindersetDateClicked();
+                break;
+
+        }
+
+    }
+
+    private void remaindersetDateClicked() {
+        //edittext_addremainder_date
+
+    }
+
+    private void remainderbtnClicked() {
             String remainderNameTextValue = remainderName.getText().toString();
             remainderName.setText("");
 
@@ -106,10 +134,10 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             }
             intent = new Intent(this, Main.class);
             startActivity(intent);
-        }
-            this.finish();
-            // Close the database
-            dao.close();
+
+        this.finish();
+        // Close the database
+        dao.close();
     }
 
     @Override

@@ -168,13 +168,40 @@
                     android:textColor="@color/labeltext"
                     android:textSize="16sp"/>
 
-                <Spinner
-                    android:id="@+id/spinner_addremainder_remaindertype"
+                <!--<Spinner-->
+                    <!--android:id="@+id/spinner_addremainder_remaindertype"-->
+                    <!--android:layout_width="@dimen/dim_150dp"-->
+                    <!--android:layout_height="@dimen/dim_40dp"-->
+                    <!--android:layout_marginLeft="@dimen/dim_10dp"-->
+                    <!--android:background="@android:drawable/btn_dropdown"-->
+                    <!--android:spinnerMode="dropdown"/>-->
+
+                <RelativeLayout
+                    android:orientation="vertical"
                     android:layout_width="@dimen/dim_150dp"
-                    android:layout_height="@dimen/dim_40dp"
-                    android:layout_marginLeft="@dimen/dim_10dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:layout_height="@dimen/dim_30dp"
+                    android:background="@color/buttonbackground">
+                    <Spinner
+                        android:id="@+id/spinner_addremainder_remaindertype"
+                        android:layout_width="@dimen/dim_150dp"
+                        android:layout_height="@dimen/dim_30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_alignParentRight="true"
+                        android:paddingRight="1dp"
+                        />
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="@dimen/dim_5dp"
+                        android:layout_height="@dimen/dim_5dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/rb_spinnerdropdown"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp" />
+                </RelativeLayout>
 
            </LinearLayout>
         </LinearLayout>
@@ -186,7 +213,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dim_5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -198,7 +226,8 @@
                 <ToggleButton
                     android:id="@+id/togglebutton_addremainder_sendwishes"
                     android:layout_width="@dimen/dim_50dp"
-                    android:layout_height="@dimen/dim_40dp"/>
+                    android:layout_height="@dimen/dim_30dp"
+                    android:background="@color/buttonbackground"/>
 
                 <CheckBox android:id="@+id/checkbox_addremainder_phone"
                     android:layout_width="wrap_content"
@@ -250,7 +279,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dim_5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -262,7 +292,8 @@
                 <ToggleButton
                     android:id="@+id/togglebutton_addremainder_reminderstatus"
                     android:layout_width="@dimen/dim_50dp"
-                    android:layout_height="@dimen/dim_40dp"/>
+                    android:layout_height="@dimen/dim_30dp"
+                    android:background="@color/buttonbackground"/>
 
             </LinearLayout>
         </LinearLayout>

@@ -15,7 +15,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="horizontal"
-            android:layout_marginLeft="@dimen/dim_10dp">
+            android:layout_marginLeft="@dimen/dim_1dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -23,12 +23,39 @@
                 android:textColor="@color/labeltext"
                 android:textSize="16sp"/>
 
-            <Spinner
-                android:id="@+id/spinner_settings_delexpireddays"
-                android:layout_width="@dimen/dim_100dp"
-                android:layout_height="@dimen/dim_50dp"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown"/>
+            <!--<Spinner-->
+                <!--android:id="@+id/spinner_settings_delexpireddays"-->
+                <!--android:layout_width="@dimen/dim_100dp"-->
+                <!--android:layout_height="@dimen/dim_50dp"-->
+                <!--android:background="@android:drawable/btn_dropdown"-->
+                <!--android:spinnerMode="dropdown"/>-->
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="@dimen/dim_70dp"
+                android:layout_height="@dimen/dim_40dp"
+                android:background="@color/buttonbackground">
+                <Spinner
+                    android:id="@+id/spinner_settings_delexpireddays"
+                    android:layout_width="@dimen/dim_50dp"
+                    android:layout_height="@dimen/dim_40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="1dp"
+                    />
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:layout_width="@dimen/dim_5dp"
+                    android:layout_height="@dimen/dim_5dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/rb_spinnerdropdown"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp" />
+            </RelativeLayout>
 
         </LinearLayout>
 
@@ -48,13 +75,16 @@
 
             <ToggleButton
                 android:id="@+id/togglebutton_settings_automaticbackup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="@dimen/dim_50dp"
+                android:layout_height="@dimen/dim_40dp"
+                android:background="@color/buttonbackground"
+                android:textColor="@color/buttontext"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_5dp">
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/dim_0.1dp"
@@ -72,7 +102,9 @@
                 android:id="@+id/button_settings_purchase"
                 android:layout_width="@dimen/dim_200dp"
                 android:layout_height="@dimen/dim_50dp"
-                android:text="@string/button_purchase"/>
+                android:text="@string/button_purchase"
+                android:background="@color/buttonbackground"
+                android:textColor="@color/buttontext"/>
         </LinearLayout>
 
         <LinearLayout
@@ -85,7 +117,9 @@
                 android:id="@+id/button_settings_export"
                 android:layout_width="@dimen/dim_200dp"
                 android:layout_height="@dimen/dim_50dp"
-                android:text="@string/button_export" />
+                android:text="@string/button_export"
+                android:background="@color/buttonbackground"
+                android:textColor="@color/buttontext"/>
         </LinearLayout>
 
         <LinearLayout
@@ -98,7 +132,9 @@
                 android:id="@+id/button_settings_import"
                 android:layout_width="@dimen/dim_200dp"
                 android:layout_height="@dimen/dim_50dp"
-                android:text="@string/button_import" />
+                android:text="@string/button_import"
+                android:background="@color/buttonbackground"
+                android:textColor="@color/buttontext"/>
         </LinearLayout>
 
         <LinearLayout
@@ -111,7 +147,9 @@
                 android:id="@+id/button_settings_aboutus"
                 android:layout_width="@dimen/dim_200dp"
                 android:layout_height="@dimen/dim_50dp"
-                android:text="@string/button_aboutus" />
+                android:text="@string/button_aboutus"
+                android:background="@color/buttonbackground"
+                android:textColor="@color/buttontext"/>
         </LinearLayout>
 
     </LinearLayout>
