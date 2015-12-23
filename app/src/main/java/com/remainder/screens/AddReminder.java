@@ -76,7 +76,6 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         Intent intent = getIntent();
         String mode =  intent.getExtras().getString("Mode");
         if (mode.equals("Edit")) {
-
             int id = intent.getExtras().getInt("ID");
             Remainder remainder =  dao.getRemainder(id);
             remainderName.setText(remainder.getName());
@@ -85,17 +84,6 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             remainderDate.setText(remainder.getDate());
             remainderEmail.setText(remainder.getEmail());
             remainderWishesMessage.setText(remainder.getWishesDetails());
-
-//            String name = intent.getExtras().getString("Name");
-//            remainderName.setText(name);
-//            String details = intent.getExtras().getString("Details");
-//            remainderDetails.setText(details);
-//            String date = intent.getExtras().getString("Date");
-//            remainderDate.setText(date);
-//            String email = intent.getExtras().getString("Email");
-//            remainderEmail.setText(email);
-//            String phone = intent.getExtras().getString("Phone");
-//            remainderPhone.setText(phone);
         }
 
         //save button click
@@ -152,6 +140,7 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         remainderObj.setDetails(remainderDetails.getText().toString());
         remainderObj.setPhone(remainderPhone.getText().toString());
         remainderObj.setEmail(remainderEmail.getText().toString());
+        remainderObj.setWishesDetails(remainderWishesMessage.getText().toString());
 
             Intent intent = getIntent();
             String mode =  intent.getExtras().getString("Mode");

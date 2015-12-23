@@ -75,11 +75,6 @@ public class ReminderList extends ArrayAdapter<Remainder> {
                 final int position = listView.getPositionForView(parentRow);
                 addIntent.putExtra("Mode","Edit");
                 addIntent.putExtra("ID", remainderList.get(position).getId());
-                addIntent.putExtra("Name",remainderList.get(position).getName());
-                addIntent.putExtra("Details",remainderList.get(position).getDetails());
-                addIntent.putExtra("Date",remainderList.get(position).getDate());
-                addIntent.putExtra("Email",remainderList.get(position).getEmail());
-                addIntent.putExtra("Phone",remainderList.get(position).getPhone());
                 context.startActivity(addIntent);
             }
         });

@@ -34,6 +34,7 @@ public class RemainderDAO {
         contentValues.put("phone", remainder.getPhone());
         contentValues.put("date", remainder.getDate());
         contentValues.put("email", remainder.getEmail());
+        contentValues.put("wishesDetails", remainder.getWishesDetails());
 
         String strFilter = "_id = " + remainder.getId();
         db.update("remainders", contentValues, strFilter, null);
@@ -46,6 +47,7 @@ public class RemainderDAO {
         contentValues.put("phone", remainder.getPhone());
         contentValues.put("date", remainder.getDate());
         contentValues.put("email", remainder.getEmail());
+        contentValues.put("wishesDetails", remainder.getWishesDetails());
         // Insert into DB
         db.insert("remainders", null, contentValues);
     }
@@ -60,7 +62,6 @@ public class RemainderDAO {
         Cursor cursor = db.rawQuery(selectQuery, null);
             if(cursor.getCount() > 0) {
                 cursor.moveToFirst();
-                //empName = cursor.getString(cursor.getColumnIndex("EmployeeName"));
                 remainder.setId(cursor.getInt(cursor.getColumnIndex("_id")));
                 remainder.setName(cursor.getString(cursor.getColumnIndex("name")));
                 remainder.setDetails(cursor.getString(cursor.getColumnIndex("details")));
@@ -92,7 +93,6 @@ public class RemainderDAO {
             remainder.setEmail(cursor.getString(3));
             remainder.setDate(cursor.getString(4));
             remainder.setDetails(cursor.getString(5));
-
 
             // Add to the DB
             remainderList.add(remainder);
