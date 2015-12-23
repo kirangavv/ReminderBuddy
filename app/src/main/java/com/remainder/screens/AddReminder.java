@@ -1,6 +1,8 @@
 package com.remainder.screens;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,8 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.remainder.R;
+import com.remainder.common.Helper;
 import com.remainder.dao.RemainderDAO;
 import com.remainder.datamodels.Remainder;
+import com.remainder.common.DatePickerFragment;
 
 import java.util.Calendar;
 
@@ -35,6 +39,7 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     private TextView dateView;
     private int year, month, day;
 
+    static final int DATE_PICKER_DIALOG_ID = 1111;
     // DAO
     private RemainderDAO dao;
 
@@ -59,6 +64,11 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         remainderPhone 		= (EditText)findViewById(R.id.edittext_addremainder_phone);
         saveButton 	        = (ImageView)findViewById(R.id.button_addremainder_save);
         dateSelectionButton = (ImageView)findViewById(R.id.button_addremainder_setdate);
+
+        //showing default date for date.
+        final Calendar c = Calendar.getInstance();
+        remainderDate.setText(new StringBuilder()
+             .append(c.get(Calendar.MONTH) + 1).append("-").append(c.get(Calendar.DAY_OF_MONTH)).append("-").append(c.get(Calendar.YEAR)));
 
         Intent intent = getIntent();
         String mode =  intent.getExtras().getString("Mode");
@@ -86,33 +96,50 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId())
         {
+
+
+
             case R.id.button_addremainder_save :
-                remainderbtnClicked();
+                remainderSaveButtonClicked();
                 break;
 
             case  R.id.button_addremainder_setdate :
-                remaindersetDateClicked();
+                remainderSetDateClicked();
                 break;
+        }
+    }
 
+    private void remainderSetDateClicked() {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    private void remainderSaveButtonClicked() {
+        //String remainderNameTextValue = remainderName.getText().toString();
+        //remainderName.setText("");
+
+        Helper helper = new Helper();
+
+        if (!helper.isNotEmptyNullText(remainderName.getText().toString()))
+        {
+            remainderName.setError("Name should not be empty!");
+            return;
         }
 
-    }
+        if (!helper.isValidDate(remainderDate.getText().toString()))
+        {
+            remainderDate.setError("Enter valid date in format 'mm-dd-yyyy'!");
+            return;
+        }
 
-    private void remaindersetDateClicked() {
-        //edittext_addremainder_date
 
-    }
-
-    private void remainderbtnClicked() {
-            String remainderNameTextValue = remainderName.getText().toString();
-            remainderName.setText("");
-
-            Remainder remainderObj= new Remainder();
-            remainderObj.setName(remainderNameTextValue);
-            remainderObj.setDate(remainderDate.getText().toString());
-            remainderObj.setDetails(remainderDetails.getText().toString());
-            remainderObj.setPhone(remainderPhone.getText().toString());
-            remainderObj.setEmail(remainderEmail.getText().toString());
+        Remainder remainderObj = new Remainder();
+        //remainderObj.setName(remainderNameTextValue);
+        remainderObj.setName(remainderName.getText().toString());
+        remainderObj.setDate(remainderDate.getText().toString());
+        remainderObj.setDetails(remainderDetails.getText().toString());
+        remainderObj.setPhone(remainderPhone.getText().toString());
+        remainderObj.setEmail(remainderEmail.getText().toString());
 
             Intent intent = getIntent();
             String mode =  intent.getExtras().getString("Mode");
@@ -152,5 +179,9 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
 
 }
