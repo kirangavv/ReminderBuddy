@@ -54,6 +54,24 @@ public class RemainderDAO {
         db.delete("remainders", "_id = " + id, null);
     }
 
+    public Remainder getRemainder(int id) {
+        Remainder remainder = new Remainder();
+        String selectQuery = "SELECT * FROM remainders WHERE _id = "+ id;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+            if(cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                //empName = cursor.getString(cursor.getColumnIndex("EmployeeName"));
+                remainder.setId(cursor.getInt(cursor.getColumnIndex("_id")));
+                remainder.setName(cursor.getString(cursor.getColumnIndex("name")));
+                remainder.setDetails(cursor.getString(cursor.getColumnIndex("details")));
+                remainder.setPhone(cursor.getString(cursor.getColumnIndex("phone")));
+                remainder.setEmail(cursor.getString(cursor.getColumnIndex("email")));
+                remainder.setDate(cursor.getString(cursor.getColumnIndex("date")));
+                remainder.setWishesDetails(cursor.getString(cursor.getColumnIndex("wishesDetails")));
+            }
+        return  remainder;
+    }
+
     public List<Remainder> getRemainders() {
         List<Remainder> remainderList = new ArrayList<Remainder>();
 
@@ -70,10 +88,11 @@ public class RemainderDAO {
             // Take values from the DB
             remainder.setId(cursor.getInt(0));
             remainder.setName(cursor.getString(1));
-            remainder.setEmail(cursor.getString(3));
             remainder.setPhone(cursor.getString(2));
-            remainder.setDetails(cursor.getString(5));
+            remainder.setEmail(cursor.getString(3));
             remainder.setDate(cursor.getString(4));
+            remainder.setDetails(cursor.getString(5));
+
 
             // Add to the DB
             remainderList.add(remainder);

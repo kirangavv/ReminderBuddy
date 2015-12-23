@@ -33,11 +33,12 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     private EditText remainderPhone;		// Text field
     private ImageView saveButton;	// Save button
     private ImageView dateSelectionButton;	// Save button
+    private EditText remainderWishesMessage; //Text filed wishes message
 
     private DatePicker datePicker;
     private Calendar calendar;
-    private TextView dateView;
-    private int year, month, day;
+    //private TextView dateView;
+    //private int year, month, day;
 
     static final int DATE_PICKER_DIALOG_ID = 1111;
     // DAO
@@ -62,6 +63,8 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         remainderDate 		= (EditText)findViewById(R.id.edittext_addremainder_date);
         remainderEmail 		= (EditText)findViewById(R.id.edittext_addremainder_email);
         remainderPhone 		= (EditText)findViewById(R.id.edittext_addremainder_phone);
+        remainderWishesMessage 		= (EditText)findViewById(R.id.edittext_addremainder_message);
+
         saveButton 	        = (ImageView)findViewById(R.id.button_addremainder_save);
         dateSelectionButton = (ImageView)findViewById(R.id.button_addremainder_setdate);
 
@@ -73,20 +76,32 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         Intent intent = getIntent();
         String mode =  intent.getExtras().getString("Mode");
         if (mode.equals("Edit")) {
-            String name = intent.getExtras().getString("Name");
-            remainderName.setText(name);
-            String details = intent.getExtras().getString("Details");
-            remainderDetails.setText(details);
-            String date = intent.getExtras().getString("Date");
-            remainderDate.setText(date);
-            String email = intent.getExtras().getString("Email");
-            remainderEmail.setText(email);
-            String phone = intent.getExtras().getString("Phone");
-            remainderPhone.setText(phone);
+
+            int id = intent.getExtras().getInt("ID");
+            Remainder remainder =  dao.getRemainder(id);
+            remainderName.setText(remainder.getName());
+            remainderDetails.setText(remainder.getDetails());
+            remainderPhone.setText(remainder.getPhone());
+            remainderDate.setText(remainder.getDate());
+            remainderEmail.setText(remainder.getEmail());
+            remainderWishesMessage.setText(remainder.getWishesDetails());
+
+//            String name = intent.getExtras().getString("Name");
+//            remainderName.setText(name);
+//            String details = intent.getExtras().getString("Details");
+//            remainderDetails.setText(details);
+//            String date = intent.getExtras().getString("Date");
+//            remainderDate.setText(date);
+//            String email = intent.getExtras().getString("Email");
+//            remainderEmail.setText(email);
+//            String phone = intent.getExtras().getString("Phone");
+//            remainderPhone.setText(phone);
         }
 
+        //save button click
         saveButton.setOnClickListener(this);
 
+        //select date button click
         dateSelectionButton.setOnClickListener(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -96,9 +111,6 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId())
         {
-
-
-
             case R.id.button_addremainder_save :
                 remainderSaveButtonClicked();
                 break;
@@ -154,7 +166,7 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             {
                 int id =  intent.getExtras().getInt("ID");
                 remainderObj.setId(id);
-                //update reaminder
+                //Update reaminder
                 dao.updateRemainder(remainderObj);
                 // Display success information
                 Toast.makeText(getApplicationContext(), "Updated reminder!", Toast.LENGTH_LONG).show();
