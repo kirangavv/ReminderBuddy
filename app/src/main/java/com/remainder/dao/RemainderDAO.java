@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 
 import com.remainder.datamodels.Remainder;
 import com.remainder.sql.RemainderSQLiteHelper;
@@ -26,21 +27,22 @@ public class RemainderDAO {
         db.close();
     }
 
-    //reminder table operations
+    /*reminder table operations*/
     public void updateRemainder(Remainder remainder) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("name", remainder.getName());
-        contentValues.put("details", remainder.getDetails());
-        contentValues.put("phone", remainder.getPhone());
-        contentValues.put("date", remainder.getDate());
-        contentValues.put("email", remainder.getEmail());
-        contentValues.put("wishesDetails", remainder.getWishesDetails());
+        ContentValues contentValues = getContentValues(remainder);
 
         String strFilter = "_id = " + remainder.getId();
         db.update("remainders", contentValues, strFilter, null);
     }
 
     public void createRemainder(Remainder remainder) {
+        ContentValues contentValues = getContentValues(remainder);
+        // Insert into DB
+        db.insert("remainders", null, contentValues);
+    }
+
+    @NonNull
+    private ContentValues getContentValues(Remainder remainder) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", remainder.getName());
         contentValues.put("details", remainder.getDetails());
@@ -48,8 +50,9 @@ public class RemainderDAO {
         contentValues.put("date", remainder.getDate());
         contentValues.put("email", remainder.getEmail());
         contentValues.put("wishesDetails", remainder.getWishesDetails());
-        // Insert into DB
-        db.insert("remainders", null, contentValues);
+        contentValues.put("sendWishes",remainder.getSendWishes());
+        contentValues.put("type", remainder.getType());
+        return contentValues;
     }
 
     public void deleteRemainder(int id) {
@@ -69,6 +72,8 @@ public class RemainderDAO {
                 remainder.setEmail(cursor.getString(cursor.getColumnIndex("email")));
                 remainder.setDate(cursor.getString(cursor.getColumnIndex("date")));
                 remainder.setWishesDetails(cursor.getString(cursor.getColumnIndex("wishesDetails")));
+                remainder.setSendWishes(cursor.getString(cursor.getColumnIndex("sendWishes")).equals("1"));
+                remainder.setType(cursor.getString(cursor.getColumnIndex("type")));
             }
         return  remainder;
     }

@@ -38,4 +38,12 @@
     <color name="buttonbackground">#0099cc</color>
     <color name="white">#FFFFFF</color>
     <color name="trans">#00000000 </color>
+
+    <integer name="max10">10</integer>
+    <integer name="max15">15</integer>
+    <integer name="max30">30</integer>
+    <integer name="max50">50</integer>
+    <integer name="max100">100</integer>
+    <integer name="max150">150</integer>
+
 </resources>

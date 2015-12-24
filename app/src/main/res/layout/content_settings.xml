@@ -43,6 +43,7 @@
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
                     android:layout_alignParentRight="true"
+                    android:popupBackground="@color/background"
                     android:paddingRight="1dp"
                     />
                 <ImageView

@@ -33,6 +33,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:maxLength="@integer/max30"
                     android:ems="10" >
                     <requestFocus />
                 </EditText>
@@ -60,7 +61,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:ems="10" >
+                    android:ems="10"
+                    android:maxLength="@integer/max50">
                 </EditText>
             </LinearLayout>
         </LinearLayout>
@@ -86,6 +88,7 @@
                     android:inputType="textEmailAddress"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="@integer/max50"
                     android:ems="10" >
                 </EditText>
             </LinearLayout>
@@ -112,7 +115,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
-                    android:maxLength="10"
+                    android:maxLength="@integer/max15"
                     android:ems="10" >
                 </EditText>
             </LinearLayout>
@@ -127,13 +130,6 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Date : "-->
-                <!--android:textColor="@color/labeltext"-->
-                <!--android:textSize="@dimen/textsize_16sp"/>-->
-
                 <ImageView
                     android:id="@+id/button_addremainder_setdate"
                     android:layout_width="@dimen/dim_40dp"
@@ -145,7 +141,8 @@
                     android:id="@+id/edittext_addremainder_date"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" >
+                    android:ems="10"
+                    android:maxLength="@integer/max10">
                 </EditText>
 
 
@@ -168,14 +165,6 @@
                     android:textColor="@color/labeltext"
                     android:textSize="16sp"/>
 
-                <!--<Spinner-->
-                    <!--android:id="@+id/spinner_addremainder_remaindertype"-->
-                    <!--android:layout_width="@dimen/dim_150dp"-->
-                    <!--android:layout_height="@dimen/dim_40dp"-->
-                    <!--android:layout_marginLeft="@dimen/dim_10dp"-->
-                    <!--android:background="@android:drawable/btn_dropdown"-->
-                    <!--android:spinnerMode="dropdown"/>-->
-
                 <RelativeLayout
                     android:orientation="vertical"
                     android:layout_width="@dimen/dim_150dp"
@@ -189,6 +178,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_alignParentRight="true"
+                        android:popupBackground="@color/background"
                         android:paddingRight="1dp"
                         />
                     <ImageView
@@ -227,6 +217,8 @@
                     android:id="@+id/togglebutton_addremainder_sendwishes"
                     android:layout_width="@dimen/dim_50dp"
                     android:layout_height="@dimen/dim_30dp"
+                    android:textOn="Yes"
+                    android:textOff="No"
                     android:background="@color/buttonbackground"/>
 
                 <CheckBox android:id="@+id/checkbox_addremainder_phone"
@@ -267,7 +259,8 @@
                     android:inputType="textMultiLine"
                     android:lines="2"
                     android:minLines="2"
-                    android:maxLines="4"/>
+                    android:maxLines="4"
+                    android:maxLength="@integer/max150"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -285,7 +278,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reminder Status : "
+                    android:text="Reminder Active : "
                     android:textColor="@color/labeltext"
                     android:textSize="16sp"/>
 
@@ -293,12 +286,14 @@
                     android:id="@+id/togglebutton_addremainder_reminderstatus"
                     android:layout_width="@dimen/dim_50dp"
                     android:layout_height="@dimen/dim_30dp"
+                    android:textOff="No"
+                    android:textOn="Yes"
                     android:background="@color/buttonbackground"/>
 
             </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+        </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

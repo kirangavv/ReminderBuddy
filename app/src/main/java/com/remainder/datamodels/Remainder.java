@@ -1,8 +1,6 @@
 package com.remainder.datamodels;
 
-/**
- * Created by satish on 11/14/2015.
- */
+
 public class Remainder {
 
     private int id;
@@ -14,6 +12,8 @@ public class Remainder {
     private String type;
     private Boolean sendWishes;
     private String wishesDetails;
+    private Boolean status;
+
 
     public int getId() {
         return id;
@@ -85,5 +85,13 @@ public class Remainder {
 
     public void setWishesDetails(String wishesDetails) {
         this.wishesDetails = wishesDetails;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

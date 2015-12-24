@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.remainder.R;
 import com.remainder.common.Helper;
@@ -25,23 +26,23 @@ import java.util.Calendar;
 
 public class AddReminder extends AppCompatActivity implements View.OnClickListener {
 
-    // GUI components
+    /* GUI components */
     private EditText remainderName;		// Text field
     private EditText remainderDetails;		// Text field
     private EditText remainderDate;		// Text field
     private EditText remainderEmail;		// Text field
     private EditText remainderPhone;		// Text field
+    private EditText remainderWishesMessage; //Text filed wishes message
     private ImageView saveButton;	// Save button
     private ImageView dateSelectionButton;	// Save button
-    private EditText remainderWishesMessage; //Text filed wishes message
+    private ToggleButton remainderStatus;
+    private ToggleButton remainderSendWishes;
+    private  Spinner remainderType;
 
+    /*variables */
     private DatePicker datePicker;
     private Calendar calendar;
-    //private TextView dateView;
-    //private int year, month, day;
-
     static final int DATE_PICKER_DIALOG_ID = 1111;
-    // DAO
     private RemainderDAO dao;
 
     @Override
@@ -53,10 +54,9 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
 
         dao = new RemainderDAO(this);
 
-        Spinner dropdown = (Spinner)findViewById(R.id.spinner_addremainder_remaindertype);
-        String[] items = new String[]{"OneTime", "Week", "Mont", "Year"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(adapter);
+        //Spinner dropdown = (Spinner)findViewById(R.id.spinner_addremainder_remaindertype);
+        String[] items = new String[]{"OneTime", "Week", "Month", "Year"};
+        ArrayAdapter<String> adapterType = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
 
         remainderName 		= (EditText)findViewById(R.id.edittext_addremainder_name);
         remainderDetails 	= (EditText)findViewById(R.id.edittext_addremainder_details);
@@ -65,13 +65,24 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         remainderPhone 		= (EditText)findViewById(R.id.edittext_addremainder_phone);
         remainderWishesMessage 		= (EditText)findViewById(R.id.edittext_addremainder_message);
 
+        remainderStatus = (ToggleButton)findViewById(R.id.togglebutton_addremainder_reminderstatus);
+        remainderSendWishes = (ToggleButton)findViewById(R.id.togglebutton_addremainder_sendwishes);
+
+        remainderType = (Spinner)findViewById(R.id.spinner_addremainder_remaindertype);
+
         saveButton 	        = (ImageView)findViewById(R.id.button_addremainder_save);
         dateSelectionButton = (ImageView)findViewById(R.id.button_addremainder_setdate);
 
-        //showing default date for date.
+        /*showing default date for date.*/
         final Calendar c = Calendar.getInstance();
         remainderDate.setText(new StringBuilder()
              .append(c.get(Calendar.MONTH) + 1).append("-").append(c.get(Calendar.DAY_OF_MONTH)).append("-").append(c.get(Calendar.YEAR)));
+
+        /* set remainder status active by default */
+        remainderStatus.setChecked(true);
+
+        /*set default type values */
+        remainderType.setAdapter(adapterType);
 
         Intent intent = getIntent();
         String mode =  intent.getExtras().getString("Mode");
@@ -84,12 +95,17 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             remainderDate.setText(remainder.getDate());
             remainderEmail.setText(remainder.getEmail());
             remainderWishesMessage.setText(remainder.getWishesDetails());
+            remainderSendWishes.setChecked(remainder.getSendWishes());
+
+            int remainderTypePosition = adapterType.getPosition(remainder.getType());
+            remainderType.setSelection(remainderTypePosition);
+
         }
 
-        //save button click
+        /*save button click */
         saveButton.setOnClickListener(this);
 
-        //select date button click
+        /*select date button click */
         dateSelectionButton.setOnClickListener(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -141,27 +157,30 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         remainderObj.setPhone(remainderPhone.getText().toString());
         remainderObj.setEmail(remainderEmail.getText().toString());
         remainderObj.setWishesDetails(remainderWishesMessage.getText().toString());
+        remainderObj.setStatus(remainderStatus.isChecked());
+        remainderObj.setSendWishes(remainderSendWishes.isChecked());
+        remainderObj.setType(remainderType.getSelectedItem().toString());
 
-            Intent intent = getIntent();
-            String mode =  intent.getExtras().getString("Mode");
+        Intent intent = getIntent();
+        String mode =  intent.getExtras().getString("Mode");
 
-            if (mode.equals("New")) {
-                // Add reaminder data to the database
-                dao.createRemainder(remainderObj);
-                // Display success information
-                Toast.makeText(getApplicationContext(), "Remainder added!", Toast.LENGTH_LONG).show();
+        if (mode.equals("New")) {
+             // Add reaminder data to the database
+             dao.createRemainder(remainderObj);
+             // Display success information
+             Toast.makeText(getApplicationContext(), "Remainder added!", Toast.LENGTH_LONG).show();
             }
-            else
-            {
-                int id =  intent.getExtras().getInt("ID");
-                remainderObj.setId(id);
-                //Update reaminder
-                dao.updateRemainder(remainderObj);
-                // Display success information
-                Toast.makeText(getApplicationContext(), "Updated reminder!", Toast.LENGTH_LONG).show();
-            }
-            intent = new Intent(this, Main.class);
-            startActivity(intent);
+        else {
+             int id =  intent.getExtras().getInt("ID");
+             remainderObj.setId(id);
+             //Update reaminder
+             dao.updateRemainder(remainderObj);
+             // Display success information
+             Toast.makeText(getApplicationContext(), "Updated reminder!", Toast.LENGTH_LONG).show();
+        }
+
+        intent = new Intent(this, Main.class);
+        startActivity(intent);
 
         this.finish();
         // Close the database
