@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,6 +39,10 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     private ImageView dateSelectionButton;	// Save button
     private ToggleButton remainderStatus;
     private ToggleButton remainderSendWishes;
+    private CheckBox remainderByEmail;
+    private CheckBox remainderByPhone;
+
+
     private  Spinner remainderType;
 
     /*variables */
@@ -68,6 +74,9 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         remainderStatus = (ToggleButton)findViewById(R.id.togglebutton_addremainder_reminderstatus);
         remainderSendWishes = (ToggleButton)findViewById(R.id.togglebutton_addremainder_sendwishes);
 
+        remainderByPhone = (CheckBox)findViewById(R.id.checkbox_addremainder_phone);
+        remainderByEmail = (CheckBox)findViewById(R.id.checkbox_addremainder_email);
+
         remainderType = (Spinner)findViewById(R.id.spinner_addremainder_remaindertype);
 
         saveButton 	        = (ImageView)findViewById(R.id.button_addremainder_save);
@@ -76,13 +85,18 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         /*showing default date for date.*/
         final Calendar c = Calendar.getInstance();
         remainderDate.setText(new StringBuilder()
-             .append(c.get(Calendar.MONTH) + 1).append("-").append(c.get(Calendar.DAY_OF_MONTH)).append("-").append(c.get(Calendar.YEAR)));
+                .append(c.get(Calendar.MONTH) + 1).append("-").append(c.get(Calendar.DAY_OF_MONTH)).append("-").append(c.get(Calendar.YEAR)));
 
         /* set remainder status active by default */
         remainderStatus.setChecked(true);
 
         /*set default type values */
         remainderType.setAdapter(adapterType);
+
+        /*disable check box and message edit*/
+        remainderByPhone.setEnabled(false);
+        remainderByEmail.setEnabled(false);
+        remainderWishesMessage.setEnabled(false);
 
         Intent intent = getIntent();
         String mode =  intent.getExtras().getString("Mode");
@@ -96,14 +110,32 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             remainderEmail.setText(remainder.getEmail());
             remainderWishesMessage.setText(remainder.getWishesDetails());
             remainderSendWishes.setChecked(remainder.getSendWishes());
-
+            remainderByEmail.setChecked(remainder.getByEmail());
+            remainderByPhone.setChecked(remainder.getByPhone());
+            remainderStatus.setChecked(remainder.getStatus());
             int remainderTypePosition = adapterType.getPosition(remainder.getType());
             remainderType.setSelection(remainderTypePosition);
+
+            /*enable byphone email and message*/
+            remainderByPhone.setEnabled(remainderSendWishes.isChecked());
+            remainderByEmail.setEnabled(remainderSendWishes.isChecked());
+            remainderWishesMessage.setEnabled(remainderSendWishes.isChecked());
 
         }
 
         /*save button click */
         saveButton.setOnClickListener(this);
+
+        /*send wishes toggle button*/
+        remainderSendWishes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                remainderByPhone.setEnabled(isChecked);
+                remainderByEmail.setEnabled(isChecked);
+                remainderWishesMessage.setEnabled(isChecked);
+            }
+        });
+
 
         /*select date button click */
         dateSelectionButton.setOnClickListener(this);
@@ -131,35 +163,23 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     }
 
     private void remainderSaveButtonClicked() {
-        //String remainderNameTextValue = remainderName.getText().toString();
-        //remainderName.setText("");
+        //Helper helper = new Helper();
 
-        Helper helper = new Helper();
-
-        if (!helper.isNotEmptyNullText(remainderName.getText().toString()))
-        {
-            remainderName.setError("Name should not be empty!");
-            return;
-        }
-
-        if (!helper.isValidDate(remainderDate.getText().toString()))
-        {
-            remainderDate.setError("Enter valid date in format 'mm-dd-yyyy'!");
-            return;
-        }
-
+        /*call validations */
+        if (!DoValidations()) return;
 
         Remainder remainderObj = new Remainder();
-        //remainderObj.setName(remainderNameTextValue);
         remainderObj.setName(remainderName.getText().toString());
         remainderObj.setDate(remainderDate.getText().toString());
         remainderObj.setDetails(remainderDetails.getText().toString());
         remainderObj.setPhone(remainderPhone.getText().toString());
         remainderObj.setEmail(remainderEmail.getText().toString());
+        remainderObj.setType(remainderType.getSelectedItem().toString());
+        remainderObj.setSendWishes(remainderSendWishes.isChecked());
+        remainderObj.setByPhone(remainderByPhone.isChecked());
+        remainderObj.setByEmail(remainderByEmail.isChecked());
         remainderObj.setWishesDetails(remainderWishesMessage.getText().toString());
         remainderObj.setStatus(remainderStatus.isChecked());
-        remainderObj.setSendWishes(remainderSendWishes.isChecked());
-        remainderObj.setType(remainderType.getSelectedItem().toString());
 
         Intent intent = getIntent();
         String mode =  intent.getExtras().getString("Mode");
@@ -185,6 +205,58 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         this.finish();
         // Close the database
         dao.close();
+    }
+
+    /*validations*/
+    private Boolean DoValidations() {
+        Helper helper = new Helper();
+        if (!helper.isNotEmptyNullText(remainderName.getText().toString()))
+        {
+            remainderName.setError("Name should not be empty!");
+            return false;
+        }
+
+        if (!helper.isValidDate(remainderDate.getText().toString()))
+        {
+            remainderDate.setError("Enter valid date in format 'mm-dd-yyyy'!");
+            return false;
+        }
+
+        if (remainderSendWishes.isChecked())
+        {
+            if (!helper.isNotEmptyNullText(remainderWishesMessage.getText().toString()))
+            {
+                remainderWishesMessage.setError("Send wishes message should not be empty when send wishes is on!");
+                return false;
+            }
+
+            if (!remainderByEmail.isChecked() && !remainderByPhone.isChecked())
+            {
+                remainderByEmail.setError("Phone or Email should be checked when send wishes is on");
+                remainderByPhone.setError("Phone or Email should be checked when send wishes is on");
+                return  false;
+            }
+
+            if (remainderByEmail.isChecked())
+            {
+                if(!helper.isValidEmail(remainderEmail.getText().toString()))
+                {
+                    remainderEmail.setError("Enter valid email");
+                    return  false;
+                }
+            }
+
+            if (remainderByPhone.isChecked())
+            {
+                if(!helper.isValidPhoneNumber(remainderPhone.getText().toString()))
+                {
+                    remainderPhone.setError("Enter valid phone number");
+                    return  false;
+                }
+            }
+        }
+
+        return  true;
     }
 
     @Override

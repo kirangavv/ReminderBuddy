@@ -11,6 +11,8 @@ public class Remainder {
     private String date;
     private String type;
     private Boolean sendWishes;
+    private Boolean byPhone;
+    private Boolean byEmail;
     private String wishesDetails;
     private Boolean status;
 
@@ -85,6 +87,22 @@ public class Remainder {
 
     public void setWishesDetails(String wishesDetails) {
         this.wishesDetails = wishesDetails;
+    }
+
+    public Boolean getByPhone() {
+        return byPhone;
+    }
+
+    public void setByPhone(Boolean byPhone) {
+        this.byPhone = byPhone;
+    }
+
+    public Boolean getByEmail() {
+        return byEmail;
+    }
+
+    public void setByEmail(Boolean byEmail) {
+        this.byEmail = byEmail;
     }
 
     public Boolean getStatus() {

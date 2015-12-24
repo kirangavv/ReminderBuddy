@@ -1,6 +1,7 @@
 package com.remainder.common;
 
 import android.text.TextUtils;
+import android.util.Patterns;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -13,15 +14,17 @@ import java.util.regex.Pattern;
 public class Helper {
 
     public boolean isValidEmail(String email) {
-        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+//        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+//                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+//        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+//        Matcher matcher = pattern.matcher(email);
+//        return matcher.matches();
+//
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    public boolean isNotEmptyNullText(String text) {
-
+    public boolean isNotEmptyNullText(String text)
+    {
         if (TextUtils.isEmpty(text.trim()) && text != null)
             return false;
 
@@ -40,4 +43,12 @@ public class Helper {
         }
     }
 
+    public boolean isValidPhoneNumber(String phoneNo)
+    {
+        if(phoneNo.length() < 10 || phoneNo == null)
+        {
+          return false;
+        }
+        return Patterns.PHONE.matcher(phoneNo).matches();
+    }
 }

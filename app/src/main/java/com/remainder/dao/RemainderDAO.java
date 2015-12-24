@@ -53,7 +53,11 @@ public class RemainderDAO {
         contentValues.put("email", remainder.getEmail());
         contentValues.put("wishesDetails", remainder.getWishesDetails());
         contentValues.put("sendWishes",remainder.getSendWishes());
+        contentValues.put("byPhone", remainder.getByPhone());
+        contentValues.put("byEmail", remainder.getByEmail());
         contentValues.put("type", remainder.getType());
+        contentValues.put("status", remainder.getStatus());
+
         return contentValues;
     }
 
@@ -75,7 +79,10 @@ public class RemainderDAO {
                 remainder.setDate(cursor.getString(cursor.getColumnIndex("date")));
                 remainder.setWishesDetails(cursor.getString(cursor.getColumnIndex("wishesDetails")));
                 remainder.setSendWishes(cursor.getString(cursor.getColumnIndex("sendWishes")).equals("1"));
+                remainder.setByEmail(cursor.getString(cursor.getColumnIndex("byEmail")).equals("1"));
+                remainder.setByPhone(cursor.getString(cursor.getColumnIndex("byPhone")).equals("1"));
                 remainder.setType(cursor.getString(cursor.getColumnIndex("type")));
+                remainder.setStatus(cursor.getString(cursor.getColumnIndex("status")).equals("1"));
             }
         return  remainder;
     }
