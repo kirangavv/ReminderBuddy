@@ -19,6 +19,8 @@ public class RemainderDAO {
     private RemainderSQLiteHelper dbHelper;
 
     public RemainderDAO(Context context) {
+        /*******un comment this to re create db*****/
+        //context.deleteDatabase("reaminders_db");
         dbHelper = new RemainderSQLiteHelper(context);
         db = dbHelper.getWritableDatabase();
     }

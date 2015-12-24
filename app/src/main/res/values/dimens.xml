@@ -38,6 +38,7 @@
     <color name="buttonbackground">#0099cc</color>
     <color name="white">#FFFFFF</color>
     <color name="trans">#00000000 </color>
+    <color name="spinner">#f4f3f3</color>
 
     <integer name="max10">10</integer>
     <integer name="max15">15</integer>
