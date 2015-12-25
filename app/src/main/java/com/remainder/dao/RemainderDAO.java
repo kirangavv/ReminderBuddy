@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
+import com.remainder.common.Constants;
 import com.remainder.datamodels.Remainder;
 import com.remainder.sql.RemainderSQLiteHelper;
 
@@ -20,7 +21,7 @@ public class RemainderDAO {
 
     public RemainderDAO(Context context) {
         /*******un comment this to re create db*****/
-        //context.deleteDatabase("reaminders_db");
+        /////context.deleteDatabase("reaminders_db");
         dbHelper = new RemainderSQLiteHelper(context);
         db = dbHelper.getWritableDatabase();
     }
@@ -115,6 +116,53 @@ public class RemainderDAO {
             cursor.moveToNext();
         }
         return remainderList;
+    }
+
+
+/*setting table operation*/
+    //insert or udpate method
+    //get value method
+
+    public void addUpdateSettings(String settingName, String settingValue)
+    {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", settingName);
+        contentValues.put("value", settingValue);
+        contentValues.put("status", true);
+        if (checkIsSettingExist(settingName))
+        {
+            //update
+            String strFilter = "name = '" + settingName + "'";
+            db.update("settings", contentValues, strFilter, null);
+        }
+        else
+        {
+            //insert
+            db.insert("settings", null, contentValues);
+        }
+    }
+
+    public String getSettingValue(String settingName) {
+        String Query = "Select * from settings where name = '" + settingName + "'";
+        Cursor cursor = db.rawQuery(Query, null);
+        String value = Constants.EMPTY_STRING;
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            value = cursor.getString(cursor.getColumnIndex("value"));
+        }
+        cursor.close();
+        return value;
+    }
+
+    public boolean checkIsSettingExist(String settingName) {
+        String Query = "Select * from settings where name = '" + settingName + "'";
+        Cursor cursor = db.rawQuery(Query, null);
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
     }
 
 

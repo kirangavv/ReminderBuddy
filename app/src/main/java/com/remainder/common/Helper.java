@@ -35,8 +35,13 @@ public class Helper {
     {
         SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy");
         df.setLenient(false);
+        Date testDate;
         try {
-            Date date1 = df.parse(date);
+            testDate = df.parse(date);
+            if (!df.format(testDate).equals(date))
+            {
+                return false;
+            }
             return true;
         } catch (ParseException e) {
             return false;

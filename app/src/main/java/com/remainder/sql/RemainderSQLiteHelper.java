@@ -17,7 +17,7 @@ public class RemainderSQLiteHelper extends SQLiteOpenHelper {
         // Execute create table SQL
         //db.execSQL("CREATE TABLE remainders (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL , details Text , phone Text , email Text , date Text, type Text, sendWishes Boolean , wishesDetails Text );");
         db.execSQL("CREATE TABLE remainders (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL , details Text , phone Text , email Text , date Text, type Text, sendWishes Boolean ,byPhone Boolean, byEmail Boolean, wishesDetails Text , status Boolean   );");
-        db.execSQL("CREATE TABLE settings (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL , details Text, status Boolean   );");
+        db.execSQL("CREATE TABLE settings (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL , value Text, status Boolean   );");
     }
 
     @Override

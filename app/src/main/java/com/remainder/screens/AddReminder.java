@@ -46,9 +46,9 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
     private  Spinner remainderType;
 
     /*variables */
-    private DatePicker datePicker;
-    private Calendar calendar;
-    static final int DATE_PICKER_DIALOG_ID = 1111;
+    //private DatePicker datePicker;
+    //private Calendar calendar;
+    //static final int DATE_PICKER_DIALOG_ID = 1111;
     private RemainderDAO dao;
 
     @Override
@@ -56,8 +56,9 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_add_reminder);// Create DAO object
+        setContentView(R.layout.activity_add_reminder);
 
+        /*create DAO object */
         dao = new RemainderDAO(this);
 
         //Spinner dropdown = (Spinner)findViewById(R.id.spinner_addremainder_remaindertype);
