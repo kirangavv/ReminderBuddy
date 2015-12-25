@@ -30,6 +30,7 @@
     <dimen name="dim_200dp">200dp</dimen>
     <dimen name="dim_250">250dp</dimen>
     <dimen name="textsize_16sp">16sp</dimen>
+    <dimen name="textsize_10sp">10sp</dimen>
 
     <color  name="background">#C2DFFF</color>
     <color name="line">#66b2ff</color>

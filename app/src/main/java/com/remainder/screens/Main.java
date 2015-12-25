@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.remainder.R;
+import com.remainder.common.Constants;
 import com.remainder.dao.RemainderDAO;
 
 public class Main extends AppCompatActivity   {
@@ -44,7 +45,7 @@ public class Main extends AppCompatActivity   {
             case R.id.menu_add:
                 //calling add reminder page
                 Intent addIntent = new Intent(this, AddReminder.class);
-                addIntent.putExtra("Mode", "New");
+                addIntent.putExtra(Constants.MODE, Constants.NEW);
                 startActivity(addIntent);
                 break;
             case R.id.menu_settings:

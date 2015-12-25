@@ -19,6 +19,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.remainder.R;
+import com.remainder.common.Constants;
 import com.remainder.common.Helper;
 import com.remainder.dao.RemainderDAO;
 import com.remainder.datamodels.Remainder;
@@ -100,9 +101,9 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         remainderWishesMessage.setEnabled(false);
 
         Intent intent = getIntent();
-        String mode =  intent.getExtras().getString("Mode");
-        if (mode.equals("Edit")) {
-            int id = intent.getExtras().getInt("ID");
+        String mode =  intent.getExtras().getString(Constants.MODE);
+        if (mode.equals(Constants.EDIT)) {
+            int id = intent.getExtras().getInt(Constants.ID);
             Remainder remainder =  dao.getRemainder(id);
             remainderName.setText(remainder.getName());
             remainderDetails.setText(remainder.getDetails());
@@ -183,21 +184,21 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         remainderObj.setStatus(remainderStatus.isChecked());
 
         Intent intent = getIntent();
-        String mode =  intent.getExtras().getString("Mode");
+        String mode =  intent.getExtras().getString(Constants.MODE);
 
-        if (mode.equals("New")) {
+        if (mode.equals(Constants.NEW)) {
              // Add reaminder data to the database
              dao.createRemainder(remainderObj);
              // Display success information
-             Toast.makeText(getApplicationContext(), "Remainder added!", Toast.LENGTH_LONG).show();
+             Toast.makeText(getApplicationContext(), Constants.REMAINDER_ADDED, Toast.LENGTH_LONG).show();
             }
         else {
-             int id =  intent.getExtras().getInt("ID");
+             int id =  intent.getExtras().getInt(Constants.ID);
              remainderObj.setId(id);
              //Update reaminder
              dao.updateRemainder(remainderObj);
              // Display success information
-             Toast.makeText(getApplicationContext(), "Updated reminder!", Toast.LENGTH_LONG).show();
+             Toast.makeText(getApplicationContext(), Constants.REMAINDER_UPDATED, Toast.LENGTH_LONG).show();
         }
 
         intent = new Intent(this, Main.class);
@@ -213,13 +214,13 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         Helper helper = new Helper();
         if (!helper.isNotEmptyNullText(remainderName.getText().toString()))
         {
-            remainderName.setError("Name should not be empty!");
+            remainderName.setError(Constants.NAME_EMPTY);
             return false;
         }
 
         if (!helper.isValidDate(remainderDate.getText().toString()))
         {
-            remainderDate.setError("Enter valid date in format 'mm-dd-yyyy'!");
+            remainderDate.setError(Constants.VALID_DATE);
             return false;
         }
 
@@ -227,14 +228,14 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
         {
             if (!helper.isNotEmptyNullText(remainderWishesMessage.getText().toString()))
             {
-                remainderWishesMessage.setError("Send wishes message should not be empty when send wishes is on!");
+                remainderWishesMessage.setError(Constants.SENDWISHES_MESSAGE_EMPTY);
                 return false;
             }
 
             if (!remainderByEmail.isChecked() && !remainderByPhone.isChecked())
             {
-                remainderByEmail.setError("Phone or Email should be checked when send wishes is on");
-                remainderByPhone.setError("Phone or Email should be checked when send wishes is on");
+                remainderByEmail.setError(Constants.SENDWISHES_PHONE_EMAIL_EMPTY);
+                remainderByPhone.setError(Constants.SENDWISHES_MESSAGE_EMPTY);
                 return  false;
             }
 
@@ -242,7 +243,7 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             {
                 if(!helper.isValidEmail(remainderEmail.getText().toString()))
                 {
-                    remainderEmail.setError("Enter valid email");
+                    remainderEmail.setError(Constants.VALID_EMAIL);
                     return  false;
                 }
             }
@@ -251,7 +252,7 @@ public class AddReminder extends AppCompatActivity implements View.OnClickListen
             {
                 if(!helper.isValidPhoneNumber(remainderPhone.getText().toString()))
                 {
-                    remainderPhone.setError("Enter valid phone number");
+                    remainderPhone.setError(Constants.VALID_PHONE);
                     return  false;
                 }
             }

@@ -112,12 +112,20 @@
 
                 <EditText
                     android:id="@+id/edittext_addremainder_phone"
-                    android:layout_width="fill_parent"
+                    android:layout_width="@dimen/dim_150dp"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
-                    android:maxLength="@integer/max15"
-                    android:ems="10" >
-                </EditText>
+                    android:maxLength="@integer/max10"
+                    android:ems="10" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phonetip"
+                    android:textColor="@color/labeltext"
+                    android:textStyle="normal|italic"
+                    android:textSize="@dimen/textsize_10sp"/>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -139,12 +147,19 @@
 
                 <EditText
                     android:id="@+id/edittext_addremainder_date"
-                    android:layout_width="fill_parent"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_width="@dimen/dim_150dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:maxLength="@integer/max10">
-                </EditText>
+                    android:maxLength="@integer/max10"/>
 
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/datetip"
+                    android:textColor="@color/labeltext"
+                    android:textStyle="normal|italic"
+                    android:textSize="@dimen/textsize_10sp"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -156,6 +171,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="@dimen/dim_10dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -204,7 +220,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal"
-                android:layout_marginTop="@dimen/dim_5dp">
+                android:layout_marginTop="@dimen/dim_10dp">
 
                 <TextView
                     android:layout_width="wrap_content"

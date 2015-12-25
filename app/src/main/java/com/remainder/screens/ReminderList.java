@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.remainder.R;
+import com.remainder.common.Constants;
 import com.remainder.dao.RemainderDAO;
 import com.remainder.datamodels.Remainder;
 import com.remainder.screens.AddReminder;
@@ -73,8 +74,8 @@ public class ReminderList extends ArrayAdapter<Remainder> {
                 View parentRow = (View) v.getParent().getParent().getParent();
                 ListView listView = (ListView) parentRow.getParent();
                 final int position = listView.getPositionForView(parentRow);
-                addIntent.putExtra("Mode","Edit");
-                addIntent.putExtra("ID", remainderList.get(position).getId());
+                addIntent.putExtra(Constants.MODE,Constants.EDIT);
+                addIntent.putExtra(Constants.ID, remainderList.get(position).getId());
                 context.startActivity(addIntent);
             }
         });
@@ -91,7 +92,7 @@ public class ReminderList extends ArrayAdapter<Remainder> {
                 final int position = listView.getPositionForView(parentRow);
                 int id = remainderList.get(position).getId();
                 dao.deleteRemainder(id);
-                Toast.makeText(context, "Remainder deleted!", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, Constants.REMAINDER_DELETED, Toast.LENGTH_LONG).show();
                 dao.close();
                 Intent mainIntent = new Intent(context, Main.class);
                 context.startActivity(mainIntent);
