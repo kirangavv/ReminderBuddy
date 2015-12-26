@@ -43,7 +43,7 @@
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
                     android:layout_alignParentRight="true"
-                    android:popupBackground="@color/background"
+                    android:popupBackground="@color/buttonbackground"
                     android:paddingRight="1dp"
                     />
                 <ImageView
@@ -97,7 +97,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:padding="@dimen/dim_10dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:gravity="center">
             <Button
                 android:id="@+id/button_settings_purchase"
@@ -106,13 +106,22 @@
                 android:text="@string/button_purchase"
                 android:background="@color/buttonbackground"
                 android:textColor="@color/buttontext"/>
+            <TextView
+                android:id="@+id/textview_settings_purchasetip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/versiontip"
+                android:textColor="@color/labeltext"
+                android:textStyle="normal|italic"
+                android:textSize="@dimen/textsize_10sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:padding="@dimen/dim_10dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:gravity="center">
             <Button
                 android:id="@+id/button_settings_export"
@@ -121,6 +130,15 @@
                 android:text="@string/button_export"
                 android:background="@color/buttonbackground"
                 android:textColor="@color/buttontext"/>
+            <TextView
+                android:id="@+id/textview_settings_backuptip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/backuptip"
+                android:textColor="@color/labeltext"
+                android:textStyle="normal|italic"
+                android:textSize="@dimen/textsize_10sp"/>
         </LinearLayout>
 
         <LinearLayout

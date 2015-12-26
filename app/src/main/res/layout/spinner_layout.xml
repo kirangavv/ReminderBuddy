@@ -2,7 +2,7 @@
     <TextView  xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/spinner"
+        android:textColor="@color/buttontext"
         android:padding="@dimen/dim_5dp"
         android:textSize="16sp"
         android:id="@+id/text_spinner" />

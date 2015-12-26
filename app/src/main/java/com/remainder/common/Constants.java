@@ -3,13 +3,17 @@ package com.remainder.common;
 
 public class Constants {
 
-    public static final String DELETE_EXPIRED_DAYS_SETTING_NAME = "DELETE_EXPIRED_DAYS";
-    public static final String AUTOMATIC_BACKUP_SETTING_NAME = "AUTOMATIC_BACKUP";
     public static final String EMPTY_STRING = "";
     public static final String MODE = "Mode";
     public static final String EDIT = "Edit";
     public static final String ID = "ID";
     public static final String NEW = "New";
+
+    /*setting name */
+    public static final String DELETE_EXPIRED_DAYS_SETTING_NAME = "DELETE_EXPIRED_DAYS";
+    public static final String AUTOMATIC_BACKUP_SETTING_NAME = "AUTOMATIC_BACKUP";
+    public static final String BACKUP_DATE_SETTING_NAME = "BACKUP_DATE";
+    public static final String VERSION_SETTING_NAME = "VERSION";
 
     /*toast messages*/
     public static final String REMAINDER_ADDED = "Reminder added!";
@@ -23,4 +27,8 @@ public class Constants {
     public static final String VALID_EMAIL = "Enter valid email!";
     public static final String VALID_PHONE = "Enter valid phone number!";
     public static final String VALID_DATE = "Enter valid date in format 'mm-dd-yyyy'!";
+
+    /*tip messages*/
+    public static final String BACKUP_DATE_TIP = "last backed up on : ";
+    public static final String PURCHASE_THANKS_TIP = "Thanks for purchasing";
 }
